@@ -1,8 +1,10 @@
 import tkinter as tk
 import random
+from curses.ascii import isalpha
 from tkinter import messagebox as mb
 
 window = tk.Tk()
+
 window.title("Guess the word")
 window.geometry("400x400")
 words = ["cake", "make", "take"]
@@ -10,6 +12,10 @@ letters = []
 guess = random.choice(words)
 attempts = 3
 
+def validate_input(value):
+    return len(value) <= 1 and (value.isalpha() or value == "")
+
+vcmd = window.register(validate_input)
 def new():
     global guess
     global letters
@@ -61,7 +67,8 @@ lab_att = tk.Label(window, text=f"attempts: {attempts}")
 lab_att.place(x = 0, y = 0)
 label.place(x=100, y=50)
 
-entry = tk.Entry(window)
+entry = tk.Entry(window, validate="key",validatecommand=(vcmd, '%P'))
+entry.focus_set()
 entry.place(x=100, y=100)
 
 

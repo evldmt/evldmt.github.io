@@ -8,23 +8,23 @@ window.resizable(False, False)
 
 def sum():
     answer.delete(0, tk.END)
-    answer.insert(0, int(entry_1.get()) + int(entry_2.get()))
+    answer.insert(0, "{:g}".format(float(entry_1.get()) + float(entry_2.get())))
     entry_1.delete(0, "end")
     entry_2.delete(0, "end")
 
 def sub():
     answer.delete(0, tk.END)
-    answer.insert(0, int(entry_1.get()) - int(entry_2.get()))
+    answer.insert(0, "{:g}".format(float(entry_1.get()) - float(entry_2.get())))
     entry_1.delete(0, "end")
     entry_2.delete(0, "end")
 def mul():
     answer.delete(0, tk.END)
-    answer.insert(0, int(entry_1.get()) * int(entry_2.get()))
+    answer.insert(0, "{:g}".format(float(entry_1.get()) * float(entry_2.get())))
     entry_1.delete(0, "end")
     entry_2.delete(0, "end")
 def div():
     answer.delete(0, tk.END)
-    answer.insert(0, int(entry_1.get()) / int(entry_2.get()))
+    answer.insert(0, "{:g}".format(float(entry_1.get()) / float(entry_2.get())))
     entry_1.delete(0, "end")
     entry_2.delete(0, "end")
 
